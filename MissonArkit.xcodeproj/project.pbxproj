@@ -13,6 +13,8 @@
 		E3BF0A1925B33139005026A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3BF0A1725B33139005026A3 /* Main.storyboard */; };
 		E3BF0A1B25B3313B005026A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3BF0A1A25B3313B005026A3 /* Assets.xcassets */; };
 		E3BF0A1E25B3313B005026A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3BF0A1C25B3313B005026A3 /* LaunchScreen.storyboard */; };
+		E3BF0A3025B331B4005026A3 /* SetObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A2F25B331B4005026A3 /* SetObject.swift */; };
+		E3BF0A3325B3325A005026A3 /* MeasureTapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A3225B3325A005026A3 /* MeasureTapPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		E3BF0A1A25B3313B005026A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3BF0A1D25B3313B005026A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3BF0A1F25B3313B005026A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E3BF0A2F25B331B4005026A3 /* SetObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetObject.swift; sourceTree = "<group>"; };
+		E3BF0A3225B3325A005026A3 /* MeasureTapPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureTapPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			children = (
 				E3BF0A1125B33138005026A3 /* AppDelegate.swift */,
 				E3BF0A1325B33138005026A3 /* ViewController.swift */,
+				E3BF0A3525B3C6A5005026A3 /* SAMPLE */,
 				E3BF0A1525B33139005026A3 /* Experience.rcproject */,
 				E3BF0A1725B33139005026A3 /* Main.storyboard */,
 				E3BF0A1A25B3313B005026A3 /* Assets.xcassets */,
@@ -65,6 +70,15 @@
 				E3BF0A1F25B3313B005026A3 /* Info.plist */,
 			);
 			path = MissonArkit;
+			sourceTree = "<group>";
+		};
+		E3BF0A3525B3C6A5005026A3 /* SAMPLE */ = {
+			isa = PBXGroup;
+			children = (
+				E3BF0A3225B3325A005026A3 /* MeasureTapPoint.swift */,
+				E3BF0A2F25B331B4005026A3 /* SetObject.swift */,
+			);
+			path = SAMPLE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +151,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3BF0A3325B3325A005026A3 /* MeasureTapPoint.swift in Sources */,
 				E3BF0A1425B33138005026A3 /* ViewController.swift in Sources */,
+				E3BF0A3025B331B4005026A3 /* SetObject.swift in Sources */,
 				E3BF0A1225B33138005026A3 /* AppDelegate.swift in Sources */,
 				E3BF0A1625B33139005026A3 /* Experience.rcproject in Sources */,
 			);
@@ -296,7 +312,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kenshihoo.MissonArkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +331,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kenshihoo.MissonArkit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
