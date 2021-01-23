@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class SetTest: UIViewController, ARSCNViewDelegate {
+class PrintCoordinate: UIViewController, ARSCNViewDelegate {
     
     @IBOutlet var sceneView: ARSCNView!
     

@@ -15,7 +15,7 @@
 		E3BF0A1E25B3313B005026A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3BF0A1C25B3313B005026A3 /* LaunchScreen.storyboard */; };
 		E3BF0A3025B331B4005026A3 /* SetObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A2F25B331B4005026A3 /* SetObject.swift */; };
 		E3BF0A3325B3325A005026A3 /* MeasureTapPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A3225B3325A005026A3 /* MeasureTapPoint.swift */; };
-		E3C0863825B8665F00DF3C96 /* SetTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C0863725B8665F00DF3C96 /* SetTest.swift */; };
+		E3C0863825B8665F00DF3C96 /* PrintCoordinate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C0863725B8665F00DF3C96 /* PrintCoordinate.swift */; };
 		E3C0863B25B9B63600DF3C96 /* SheetSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C0863A25B9B63600DF3C96 /* SheetSet.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,7 +30,7 @@
 		E3BF0A1F25B3313B005026A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3BF0A2F25B331B4005026A3 /* SetObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetObject.swift; sourceTree = "<group>"; };
 		E3BF0A3225B3325A005026A3 /* MeasureTapPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasureTapPoint.swift; sourceTree = "<group>"; };
-		E3C0863725B8665F00DF3C96 /* SetTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTest.swift; sourceTree = "<group>"; };
+		E3C0863725B8665F00DF3C96 /* PrintCoordinate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintCoordinate.swift; sourceTree = "<group>"; };
 		E3C0863A25B9B63600DF3C96 /* SheetSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +81,7 @@
 			children = (
 				E3BF0A3225B3325A005026A3 /* MeasureTapPoint.swift */,
 				E3BF0A2F25B331B4005026A3 /* SetObject.swift */,
-				E3C0863725B8665F00DF3C96 /* SetTest.swift */,
+				E3C0863725B8665F00DF3C96 /* PrintCoordinate.swift */,
 				E3C0863A25B9B63600DF3C96 /* SheetSet.swift */,
 			);
 			path = SAMPLE;
@@ -157,7 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3C0863825B8665F00DF3C96 /* SetTest.swift in Sources */,
+				E3C0863825B8665F00DF3C96 /* PrintCoordinate.swift in Sources */,
 				E3BF0A3325B3325A005026A3 /* MeasureTapPoint.swift in Sources */,
 				E3BF0A1425B33138005026A3 /* ViewController.swift in Sources */,
 				E3BF0A3025B331B4005026A3 /* SetObject.swift in Sources */,
