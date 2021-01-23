@@ -11,8 +11,9 @@ import ARKit
 
 class ViewController: UIViewController, ARSCNViewDelegate {
     
-    var tapSceen:[CGPoint] = []
+    var tapCount = 0
     var tapAnchor : [ARAnchor] = []
+    var distancePoint : [Double] = []
     
     @IBOutlet var sceneView: ARSCNView!
     
@@ -59,24 +60,25 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //複数タッチの受信を可能にする
         sceneView.isMultipleTouchEnabled = true
         
-        //タップされた位置の座標を保存する
+        //タップされた位置のARanchorを保存する
         for (touch) in touches{
             
-            //スクリーン座標を保存
+            tapCount += 1
+            
+            //スクリーン座標に変換
             let point = touch.location(in: sceneView)
-                tapSceen.append(point)
+            
             
             //スクリーン座標に符合するARanchorを保存
             let hitPoint = sceneView.hitTest(point, types:.existingPlaneUsingExtent)
             
-        
             if !hitPoint.isEmpty {
             let hitAnchor = ARAnchor(transform: hitPoint.first!.worldTransform)
             tapAnchor.append(hitAnchor)
          
             
-            //2回目以上のタップからセッションを終了するかを判断する
-            if tapSceen.count > 1{
+            //3回目以上のタップからセッションを終了するかを判断する
+            if tapCount > 2{
                 
                 if !tapAnchor.isEmpty {
 
@@ -86,13 +88,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     let distanceZ = Double((tapAnchor.first!).transform.columns.3.z - (tapAnchor.last!).transform.columns.3.z)
                     
                     let distancetap = sqrt(distanceX*distanceX + distanceZ*distanceZ)
-                    
-                    print(distancetap)
               
-            //2点の距離が3cm以内ならセッション終了させる(100倍でcm)
+            //2点の距離が3cm以内ならセッション終了させる
             if distancetap < 0.03{
                 //ARセッションを停止
                 sceneView.session.pause()
+                //各オブジェクト同士の距離を算出
+                measurePoints()
+                
+                //動作確認用のprint
                 print("完了")
                 print(distancetap)
                                     }
@@ -130,4 +134,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     // 検出面の子要素にする
     node.addChildNode(sphereNode)
     }
+    
+    
+    //各オブジェクト間の距離を測定する
+    func measurePoints()  {
+        var measureCount = 1
+        
+        for i in 0...tapCount - 2 {
+            
+            if measureCount == i{
+                measureCount = 0
+            }
+           
+                let distanceX = Double((tapAnchor[i]).transform.columns.3.x - (tapAnchor[measureCount]).transform.columns.3.x)
+            
+                let distanceZ = Double((tapAnchor[i]).transform.columns.3.z - (tapAnchor[measureCount]).transform.columns.3.z)
+            
+                let distancetap = sqrt(distanceX*distanceX + distanceZ*distanceZ)
+                
+            distancePoint.append(distancetap)
+            
+           measureCount += 1
+        }
+        print(distancePoint)
+    }
+    
+    
 }
