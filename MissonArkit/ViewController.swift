@@ -50,7 +50,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.pause()
     }
     
-        //上記まででARSCNViewの設定と平面検出ができるようになっている//
+        //<上記まででARSCNViewの設定と平面検出ができるようになっている>
 
     
     
@@ -76,8 +76,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let hitAnchor = ARAnchor(transform: hitPoint.first!.worldTransform)
             tapAnchor.append(hitAnchor)
          
-            
-            //3回目以上のタップからセッションを終了するかを判断する
+            //3回目以降のタップからセッションを終了するかを判断する
             if tapCount > 2{
                 
                 if !tapAnchor.isEmpty {
@@ -89,12 +88,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     
                     let distancetap = sqrt(distanceX*distanceX + distanceZ*distanceZ)
               
-            //2点の距離が3cm以内ならセッション終了させる
-            if distancetap < 0.03{
-                //ARセッションを停止
-                sceneView.session.pause()
-                //各オブジェクト同士の距離を算出
-                measurePoints()
+                    //2点の距離が3cm以内ならセッション終了させる
+                    if distancetap < 0.03{
+                        //ARセッションを停止
+                        sceneView.session.pause()
+                        //各オブジェクト同士の距離を算出
+                        measurePoints()
                 
                 //動作確認用のprint
                 print("完了")
@@ -104,22 +103,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                             }
                         }
                     }
-        //オブジェクトを設置する
-        guard let firstTouch = touches.first else {return}
         
-        // タップした座標をスクリーン座標に変換する
-        let touchPos = firstTouch.location(in: sceneView)
-        
-        // タップされた位置のARアンカーを探す(タップされた2Dの座標に合う3Dの平面があるかを判定)P41参照
-        let hitTest = sceneView.hitTest(touchPos, types:.existingPlaneUsingExtent)
-            
-            //タップした位置に合う面を検出できていた場合
-            if !hitTest.isEmpty {
-            //アンカーを追加(タップされた位置の座標をARアンカーとして追加)
-            let anchor = ARAnchor(transform: hitTest.first!.worldTransform)
-            //シーンにARAnchorを追加。平面が見つかったときと同様の扱いになる(renderer(_:didAdd:for)を呼べる)
-            sceneView.session.add(anchor: anchor)
-            }
+        //オブジェクトを設置
+        //シーンにARAnchorを追加。平面が見つかったときと同様の扱いになり(renderer(_:didAdd:for)を呼べる)
+        sceneView.session.add(anchor: (tapAnchor)[tapCount - 1])
     }
     
     // シーンにARAnchorが追加されたときの処理
@@ -156,8 +143,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             
            measureCount += 1
         }
+        //動作確認用のprint
         print(distancePoint)
     }
-    
-    
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E37A8BF525BDAB90002EA6A0 /* TouchesIMage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A8BF425BDAB90002EA6A0 /* TouchesIMage.swift */; };
 		E3BF0A1225B33138005026A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A1125B33138005026A3 /* AppDelegate.swift */; };
 		E3BF0A1425B33138005026A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A1325B33138005026A3 /* ViewController.swift */; };
 		E3BF0A1625B33139005026A3 /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A1525B33139005026A3 /* Experience.rcproject */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E37A8BF425BDAB90002EA6A0 /* TouchesIMage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchesIMage.swift; sourceTree = "<group>"; };
 		E3BF0A0E25B33138005026A3 /* MissonArkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MissonArkit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BF0A1125B33138005026A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3BF0A1325B33138005026A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				E3BF0A2F25B331B4005026A3 /* SetObject.swift */,
 				E3C0863725B8665F00DF3C96 /* PrintCoordinate.swift */,
 				E3C0863A25B9B63600DF3C96 /* SheetSet.swift */,
+				E37A8BF425BDAB90002EA6A0 /* TouchesIMage.swift */,
 			);
 			path = SAMPLE;
 			sourceTree = "<group>";
@@ -157,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E37A8BF525BDAB90002EA6A0 /* TouchesIMage.swift in Sources */,
 				E3C0863825B8665F00DF3C96 /* PrintCoordinate.swift in Sources */,
 				E3BF0A3325B3325A005026A3 /* MeasureTapPoint.swift in Sources */,
 				E3BF0A1425B33138005026A3 /* ViewController.swift in Sources */,
