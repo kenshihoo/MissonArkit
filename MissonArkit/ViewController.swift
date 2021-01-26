@@ -19,9 +19,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         sceneView.delegate = self
-
         sceneView.scene = SCNScene()
     }
     
@@ -53,13 +51,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //<上記まででARSCNViewの設定と平面検出ができるようになっている>
 
     
-    
     //画面がタップされた場合の処理
     override func touchesBegan(_ touches: Set<UITouch>, with event:UIEvent?) {
         
-        //複数タッチの受信を可能にする
-        sceneView.isMultipleTouchEnabled = true
-        
+        //タッチするごとにtouchesBeganが呼ばれるので、その都度.firstを呼べばいい(for文を1つなくせる)
         //タップされた位置のARanchorを保存する
         for (touch) in touches{
             
@@ -68,7 +63,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             //スクリーン座標に変換
             let point = touch.location(in: sceneView)
             
-            
             //スクリーン座標に符合するARanchorを保存
             let hitPoint = sceneView.hitTest(point, types:.existingPlaneUsingExtent)
             
@@ -76,11 +70,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let hitAnchor = ARAnchor(transform: hitPoint.first!.worldTransform)
             tapAnchor.append(hitAnchor)
          
+            //guard節使って3回未満ならbreakとかやるとわかりやすくなりそう
             //3回目以降のタップからセッションを終了するかを判断する
             if tapCount > 2{
                 
                 if !tapAnchor.isEmpty {
 
+                    //メソッドに切り出せるのでは？(.firstと.lastの部分を引数にすると別の部分でも使える)
                     //三平方の定理を用いて2点間の距離を測定
                     let distanceX = Double((tapAnchor.first!).transform.columns.3.x - (tapAnchor.last!).transform.columns.3.x)
                     
@@ -88,6 +84,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     
                     let distancetap = sqrt(distanceX*distanceX + distanceZ*distanceZ)
               
+                    //メソッドに切り出せるのでは？
                     //2点の距離が3cm以内ならセッション終了させる
                     if distancetap < 0.03{
                         //ARセッションを停止
@@ -103,7 +100,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                             }
                         }
                     }
-        
         //オブジェクトを設置
         //シーンにARAnchorを追加。平面が見つかったときと同様の扱いになり(renderer(_:didAdd:for)を呼べる)
         sceneView.session.add(anchor: (tapAnchor)[tapCount - 1])
@@ -127,16 +123,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     func measurePoints()  {
         var measureCount = 1
         
+        //distancePointをから配列に初期化
+        distancePoint.removeAll()
+        
         for i in 0...tapCount - 2 {
             
             if measureCount == i{
                 measureCount = 0
             }
            
+                //メソッドに切り出せるのでは？
                 let distanceX = Double((tapAnchor[i]).transform.columns.3.x - (tapAnchor[measureCount]).transform.columns.3.x)
-            
                 let distanceZ = Double((tapAnchor[i]).transform.columns.3.z - (tapAnchor[measureCount]).transform.columns.3.z)
-            
                 let distancetap = sqrt(distanceX*distanceX + distanceZ*distanceZ)
                 
             distancePoint.append(distancetap)
