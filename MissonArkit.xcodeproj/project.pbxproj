@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E37A8BF525BDAB90002EA6A0 /* TouchesIMage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A8BF425BDAB90002EA6A0 /* TouchesIMage.swift */; };
+		E37A8BF925C043AE002EA6A0 /* ImageSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A8BF825C043AD002EA6A0 /* ImageSave.swift */; };
 		E3BF0A1225B33138005026A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A1125B33138005026A3 /* AppDelegate.swift */; };
 		E3BF0A1425B33138005026A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A1325B33138005026A3 /* ViewController.swift */; };
 		E3BF0A1625B33139005026A3 /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A1525B33139005026A3 /* Experience.rcproject */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		E37A8BF425BDAB90002EA6A0 /* TouchesIMage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchesIMage.swift; sourceTree = "<group>"; };
+		E37A8BF825C043AD002EA6A0 /* ImageSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSave.swift; sourceTree = "<group>"; };
 		E3BF0A0E25B33138005026A3 /* MissonArkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MissonArkit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BF0A1125B33138005026A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3BF0A1325B33138005026A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			children = (
 				E3BF0A1125B33138005026A3 /* AppDelegate.swift */,
 				E3BF0A1325B33138005026A3 /* ViewController.swift */,
+				E37A8BF825C043AD002EA6A0 /* ImageSave.swift */,
 				E3BF0A3525B3C6A5005026A3 /* SAMPLE */,
 				E3BF0A1525B33139005026A3 /* Experience.rcproject */,
 				E3BF0A1725B33139005026A3 /* Main.storyboard */,
@@ -166,6 +169,7 @@
 				E3BF0A1425B33138005026A3 /* ViewController.swift in Sources */,
 				E3BF0A3025B331B4005026A3 /* SetObject.swift in Sources */,
 				E3BF0A1225B33138005026A3 /* AppDelegate.swift in Sources */,
+				E37A8BF925C043AE002EA6A0 /* ImageSave.swift in Sources */,
 				E3BF0A1625B33139005026A3 /* Experience.rcproject in Sources */,
 				E3C0863B25B9B63600DF3C96 /* SheetSet.swift in Sources */,
 			);

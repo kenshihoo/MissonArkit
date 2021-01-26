@@ -13,7 +13,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     var tapCount = 0
     var tapAnchor : [ARAnchor] = []
-    var distancePoint : [Double] = []
     
     @IBOutlet var sceneView: ARSCNView!
     
@@ -89,17 +88,16 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                     if distancetap < 0.03{
                         //ARセッションを停止
                         sceneView.session.pause()
-                        //各オブジェクト同士の距離を算出
-                        measurePoints()
-                
-                //動作確認用のprint
-                print("完了")
-                print(distancetap)
-                                    }
+                        //画面遷移
+                        segueToImageSave()
+                        //動作確認用のprint
+                        print("完了")
+                        print(distancetap)
                                 }
                             }
                         }
                     }
+                }
         //オブジェクトを設置
         //シーンにARAnchorを追加。平面が見つかったときと同様の扱いになり(renderer(_:didAdd:for)を呼べる)
         sceneView.session.add(anchor: (tapAnchor)[tapCount - 1])
@@ -119,29 +117,18 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     
-    //各オブジェクト間の距離を測定する
-    func measurePoints()  {
-        var measureCount = 1
+    //画面遷移(各種変数の値を受け渡す)
+    func segueToImageSave (){
         
-        //distancePointをから配列に初期化
-        distancePoint.removeAll()
-        
-        for i in 0...tapCount - 2 {
+        self.performSegue(withIdentifier: "toImageSave", sender: nil)
+        func  prepare(for segue: UIStoryboardSegue, sender: Any?){
             
-            if measureCount == i{
-                measureCount = 0
+            if segue.identifier == "toImageSave" {
+                let imageSave = segue.destination as! ImageSave
+                //値の受け渡し
+                imageSave.tapCount = tapCount
+                imageSave.tapAnchor = tapAnchor
             }
-           
-                //メソッドに切り出せるのでは？
-                let distanceX = Double((tapAnchor[i]).transform.columns.3.x - (tapAnchor[measureCount]).transform.columns.3.x)
-                let distanceZ = Double((tapAnchor[i]).transform.columns.3.z - (tapAnchor[measureCount]).transform.columns.3.z)
-                let distancetap = sqrt(distanceX*distanceX + distanceZ*distanceZ)
-                
-            distancePoint.append(distancetap)
-            
-           measureCount += 1
         }
-        //動作確認用のprint
-        print(distancePoint)
     }
 }
