@@ -69,13 +69,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             let hitAnchor = ARAnchor(transform: hitPoint.first!.worldTransform)
             tapAnchor.append(hitAnchor)
          
-            //guard節使って3回未満ならbreakとかやるとわかりやすくなりそう
-            //3回目以降のタップからセッションを終了するかを判断する
-            if tapCount > 2{
+            //guard節使って4回未満ならbreakとかやるとわかりやすくなりそう
+            //4回目以降のタップからセッションを終了するかを判断する
+            if tapCount > 3{
                 
+                //メソッドに切り出せるのでは？(.firstと.lastの部分を引数にすると別の部分でも使える)
                 if !tapAnchor.isEmpty {
-
-                    //メソッドに切り出せるのでは？(.firstと.lastの部分を引数にすると別の部分でも使える)
                     //三平方の定理を用いて2点間の距離を測定
                     let distanceX = Double((tapAnchor.first!).transform.columns.3.x - (tapAnchor.last!).transform.columns.3.x)
                     
@@ -117,15 +116,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
     
-    //画面遷移(各種変数の値を受け渡す)
+    //画面遷移
     func segueToImageSave (){
         
         self.performSegue(withIdentifier: "toImageSave", sender: nil)
         func  prepare(for segue: UIStoryboardSegue, sender: Any?){
-            
+
             if segue.identifier == "toImageSave" {
+                //ImageSaveへの値の受け渡し
                 let imageSave = segue.destination as! ImageSave
-                //値の受け渡し
                 imageSave.tapCount = tapCount
                 imageSave.tapAnchor = tapAnchor
             }

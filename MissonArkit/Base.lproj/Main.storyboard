@@ -42,13 +42,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="rTR-7H-teN"/>
-                    <connections>
-                        <outlet property="imageView" destination="NTh-Cm-A7N" id="MCP-1X-VZC"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HPl-ka-nDl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="873.91304347826099" y="123.88392857142857"/>
+            <point key="canvasLocation" x="931.88405797101461" y="92.410714285714278"/>
         </scene>
     </scenes>
     <resources>
