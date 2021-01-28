@@ -123,10 +123,10 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         func  prepare(for segue: UIStoryboardSegue, sender: Any?){
 
             if segue.identifier == "toImageSave" {
-                //ImageSaveへの値の受け渡し
-                let imageSave = segue.destination as! ImageSave
-                imageSave.tapCount = tapCount
-                imageSave.tapAnchor = tapAnchor
+                //DrawImageへの値の受け渡し
+                let drawImage = segue.destination as! DrawImage
+                drawImage.tapCount = tapCount
+                drawImage.tapAnchor = tapAnchor
             }
         }
     }
