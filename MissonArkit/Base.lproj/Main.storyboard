@@ -28,9 +28,9 @@
         <!--Image Save-->
         <scene sceneID="81a-ho-BLT">
             <objects>
-                <viewController id="oZs-KF-SvY" customClass="ImageSave" customModule="MissonArkit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="oZs-KF-SvY" customClass="ImageSave" customModule="MissonArkit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5II-Iw-PqP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="iI0-2x-3Sc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>

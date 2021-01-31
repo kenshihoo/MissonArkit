@@ -36,6 +36,13 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         let configuration = ARWorldTrackingConfiguration()
         //平面の検出を有効化
         configuration.planeDetection = [.horizontal]
+        
+        //各種変数を初期化
+        tapCount = 0
+        tapAnchor.removeAll()
+        
+        
+        
         //ARセッションを開始
         sceneView.session.run(configuration)
     }

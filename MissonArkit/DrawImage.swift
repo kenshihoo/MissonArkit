@@ -15,14 +15,37 @@ class DrawImage: UIView {
     var tapCount :Int!
     var tapAnchor : [ARAnchor?] = []
     
-    var distancePoint : [Double?] = []
+    override func draw(_ rect: CGRect) {
+        // UIBezierPath のインスタンス生成
+        let line = UIBezierPath();
+        
+    if !tapAnchor.isEmpty {
+        // 起点の設定
+        line.move(to: CGPoint(x: Int(tapAnchor[0]!.transform.columns.3.x), y: Int(tapAnchor[0]!.transform.columns.3.z)));
+        
+        // 帰着点の設定
+        for drawCount in 1...tapCount - 2 {
+                line.addLine(to: CGPoint(x: Int(tapAnchor[drawCount]!.transform.columns.3.x), y: Int(tapAnchor[drawCount]!.transform.columns.3.z)));
+        }
+        
+        // ラインを結ぶ
+        line.close()
+        // 塗りつぶし色の設定
+        UIColor.gray.setFill()
+        // 内側の塗りつぶし
+        line.fill()
+        // stroke 色の設定
+        UIColor.green.setStroke()
+        // ライン幅
+        line.lineWidth = 1
+        // 描画
+        line.stroke();
+        }
+    }
     
     //各オブジェクト間の距離を測定する
     func measurePoints()  {
         var measureCount = 1
-        
-        //distancePointを空配列に初期化
-        distancePoint.removeAll()
         
         for i in 0...tapCount - 2 {
             
@@ -32,55 +55,24 @@ class DrawImage: UIView {
            
             if !tapAnchor.isEmpty {
                 let distanceX = Double((tapAnchor[i])!.transform.columns.3.x - (tapAnchor[measureCount])!.transform.columns.3.x)
-                let distanceZ = Double((tapAnchor[i])!.transform.columns.3.z - (tapAnchor[measureCount])!.transform.columns.3.z)
-                let distancetap = sqrt(distanceX*distanceX + distanceZ*distanceZ)
-                
-                distancePoint.append(distancetap)
+                let distanceY = Double((tapAnchor[i])!.transform.columns.3.z - (tapAnchor[measureCount])!.transform.columns.3.z)
+                let distancetap = sqrt(distanceX*distanceX + distanceY*distanceY)
                 
                 measureCount += 1
-                }
+                
+                distanceDraw(i: i,distanceX: distancetap,distanceY: distanceY,distancetap: distancetap)
             }
-        //動作確認用のprint
-        print(distancePoint)
+        }
     }
     
-    override func draw(_ rect: CGRect) {
-        // UIBezierPath のインスタンス生成
-        let line = UIBezierPath();
-    if !tapAnchor.isEmpty {
-        // 起点の設定
-        line.move(to: CGPoint(x: Int(tapAnchor[0]!.transform.columns.3.x), y: Int(tapAnchor[0]!.transform.columns.3.z)));
+    //辺の横(辺の中心からx軸で0.01離れ部分)に距離(distancePointの情報)を表示
+    func distanceDraw(i: Int , distanceX: Double ,distanceY: Double,distancetap: Double)  {
+        let labelCoordinateX = (Double(tapAnchor[i]!.transform.columns.3.x) - distanceX/2) + 0.01
+        let labelCoordinateY = Double(tapAnchor[i]!.transform.columns.3.z) - distanceY/2
         
-        var drawCount = 1
-        
-        // 帰着点の設定
-        for _ in 0...tapCount - 3 {
-
-                line.addLine(to: CGPoint(x: Int(tapAnchor[drawCount]!.transform.columns.3.x), y: Int(tapAnchor[drawCount]!.transform.columns.3.z)));
-                
-                drawCount += 1
-                }
-        
-                // ラインを結ぶ
-                line.close()
-                // 塗りつぶし色の設定
-                UIColor.gray.setFill()
-                // 内側の塗りつぶし
-                line.fill()
-                
-                // stroke 色の設定
-                UIColor.green.setStroke()
-                // ライン幅
-                line.lineWidth = 1
-                // 描画
-                line.stroke();
-                }
-        
-            //各辺の下部(辺の中心からx軸で0.01離れ部分)に距離(distancePointの情報)を表示
-            "MyText".draw(at: CGPoint(x: 100, y: 100), withAttributes: [
-                NSAttributedString.Key.foregroundColor : UIColor.blue,
-                NSAttributedString.Key.font : UIFont.systemFont(ofSize: 50),
-                    ])
+        "\(String(describing:distancetap ))*100".draw(at: CGPoint(x: labelCoordinateX, y: labelCoordinateY), withAttributes: [
+                NSAttributedString.Key.foregroundColor : UIColor.red,
+                NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18),])
     }
     /*
     // Only override draw() if you perform custom drawing.

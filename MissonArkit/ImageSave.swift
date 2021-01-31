@@ -12,14 +12,10 @@ import ARKit
 
 class ImageSave: UIViewController, ARSCNViewDelegate {
     
-    
-    @IBOutlet weak var imageView: UIImageView!
-    
     var sceneView: ARSCNView!
 
     var tapCount :Int!
     var tapAnchor : [ARAnchor?] = []
-    
     
     
     override func viewDidLoad() {
