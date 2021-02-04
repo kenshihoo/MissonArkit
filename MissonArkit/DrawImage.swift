@@ -11,18 +11,22 @@ import ARKit
 
 class DrawImage: UIView {
 
-    //ViewControllerから値を持って来たい
     var tapCount :Int!
     //CGPoint型に変換した独自の配列(didsetで行う)同時にScaleの計算もしておく
     var tapAnchor : [ARAnchor?] = []
+    
+    
+    
     
     override func draw(_ rect: CGRect) {
         // UIBezierPath のインスタンス生成
         let line = UIBezierPath();
         
+        
     if !tapAnchor.isEmpty {
         // 起点の設定
         line.move(to: CGPoint(x: Int(tapAnchor[0]!.transform.columns.3.x), y: Int(tapAnchor[0]!.transform.columns.3.z)));
+        
         
         // 帰着点の設定
         for drawCount in 1...tapCount - 2 {

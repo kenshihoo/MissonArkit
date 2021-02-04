@@ -14,18 +14,21 @@ class ImageSave: UIViewController, ARSCNViewDelegate {
 
     var tapCount :Int!
     var tapAnchor : [ARAnchor?] = []
+    weak var drawView: DrawImage!
 
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //DrawImageに値を渡す
+        self.drawView.tapCount = tapCount
+        self.drawView.tapAnchor = tapAnchor
+        
         // Screen Size の取得
         let screenWidth = self.view.bounds.width
         let screenHeight = self.view.bounds.height
          
         var planeDraw = DrawImage(frame: CGRect(x: 0, y: 0,width: screenWidth, height: screenHeight))
-        //DrawImageに値を渡す
-        
         
         
         self.view.addSubview(planeDraw)
