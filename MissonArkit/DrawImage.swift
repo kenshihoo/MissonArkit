@@ -12,10 +12,9 @@ import ARKit
 class DrawImage: UIView {
 
     var tapCount :Int!
-    //CGPoint型に変換した独自の配列(didsetで行う)同時にScaleの計算もしておく
+    //CGPoint型に変換した独自の配列(didsetで行う)同時にScaleの計算もしておきたい
     var tapAnchor : [ARAnchor?] = []
-    
-    
+    var edge :[Double?] = []
     
     
     override func draw(_ rect: CGRect) {
@@ -63,11 +62,18 @@ class DrawImage: UIView {
                 let distanceY = Double((tapAnchor[i])!.transform.columns.3.z - (tapAnchor[measureCount])!.transform.columns.3.z)
                 let distancetap = sqrt(distanceX*distanceX + distanceY*distanceY)
                 
+                edge.append(distancetap)
+                
                 measureCount += 1
                 
                 distanceDraw(i: i,distanceX: distancetap,distanceY: distanceY,distancetap: distancetap)
             }
         }
+    }
+    
+//viewのサイズにあわせて画像のサイズを縮小
+    func scale() {
+        
     }
     
     //辺の横(辺の中心からx軸で0.01離れた部分)に距離を表示
@@ -79,6 +85,12 @@ class DrawImage: UIView {
                 NSAttributedString.Key.foregroundColor : UIColor.red,
                 NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18),])
     }
+    
+//縮小する場合の比率を計算
+    func measureScale()   {
+        self.transform = self.transform.scaledBy(x: <#T##CGFloat#>, y: <#T##CGFloat#>)
+    }
+    
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

@@ -15,7 +15,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var tapAnchor : [ARAnchor] = []
     
     @IBOutlet var sceneView: ARSCNView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.delegate = self
