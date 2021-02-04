@@ -37,10 +37,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //平面の検出を有効化
         configuration.planeDetection = [.horizontal]
         
-        //各種変数を初期化
+        //各種変数を初期化(初期化ボタンを一回挟む？)
         tapCount = 0
         tapAnchor.removeAll()
-        
         
         
         //ARセッションを開始
@@ -80,7 +79,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             //4回目以降のタップからセッションを終了するかを判断する
             if tapCount > 3{
                 
-                //メソッドに切り出せるのでは？(.firstと.lastの部分を引数にすると別の部分でも使える)
                 if !tapAnchor.isEmpty {
                     //三平方の定理を用いて2点間の距離を測定
                     let distanceX = Double((tapAnchor.first!).transform.columns.3.x - (tapAnchor.last!).transform.columns.3.x)
@@ -125,15 +123,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     
     //画面遷移
     func segueToImageSave (){
-        
         self.performSegue(withIdentifier: "toImageSave", sender: nil)
+        
         func  prepare(for segue: UIStoryboardSegue, sender: Any?){
-
             if segue.identifier == "toImageSave" {
                 //DrawImageへの値の受け渡し
-                let drawImage = segue.destination as! DrawImage
-                drawImage.tapCount = tapCount
-                drawImage.tapAnchor = tapAnchor
+                let imagesave = segue.destination as! ImageSave
+                imagesave.tapCount = tapCount
+                imagesave.tapAnchor = tapAnchor
             }
         }
     }

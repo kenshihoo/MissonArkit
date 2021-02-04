@@ -13,6 +13,7 @@ class DrawImage: UIView {
 
     //ViewControllerから値を持って来たい
     var tapCount :Int!
+    //CGPoint型に変換した独自の配列(didsetで行う)同時にScaleの計算もしておく
     var tapAnchor : [ARAnchor?] = []
     
     override func draw(_ rect: CGRect) {
@@ -65,7 +66,7 @@ class DrawImage: UIView {
         }
     }
     
-    //辺の横(辺の中心からx軸で0.01離れ部分)に距離(distancePointの情報)を表示
+    //辺の横(辺の中心からx軸で0.01離れた部分)に距離を表示
     func distanceDraw(i: Int , distanceX: Double ,distanceY: Double,distancetap: Double)  {
         let labelCoordinateX = (Double(tapAnchor[i]!.transform.columns.3.x) - distanceX/2) + 0.01
         let labelCoordinateY = Double(tapAnchor[i]!.transform.columns.3.z) - distanceY/2
