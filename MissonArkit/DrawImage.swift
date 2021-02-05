@@ -71,11 +71,6 @@ class DrawImage: UIView {
         }
     }
     
-//viewのサイズにあわせて画像のサイズを縮小
-    func scale() {
-        
-    }
-    
     //辺の横(辺の中心からx軸で0.01離れた部分)に距離を表示
     func distanceDraw(i: Int , distanceX: Double ,distanceY: Double,distancetap: Double)  {
         let labelCoordinateX = (Double(tapAnchor[i]!.transform.columns.3.x) - distanceX/2) + 0.01
@@ -86,17 +81,10 @@ class DrawImage: UIView {
                 NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18),])
     }
     
-//縮小する場合の比率を計算
-    func measureScale()   {
-        self.transform = self.transform.scaledBy(x: <#T##CGFloat#>, y: <#T##CGFloat#>)
-    }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-         Drawing code
-    }
-    */
-
+////縮小する場合の比率を計算
+//    func measureScale()   {
+//
+//        print(edge[0]! as Double)
+//        self.transform = self.transform.scaledBy(x: <#T##CGFloat#>, y: <#T##CGFloat#>)
+//    }
 }

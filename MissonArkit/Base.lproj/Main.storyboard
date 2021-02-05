@@ -48,7 +48,7 @@
                                     <color key="titleColor" systemColor="systemOrangeColor"/>
                                 </state>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xjN-w9-HuM">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xjN-w9-HuM" customClass="DrawImage" customModule="MissonArkit" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="115" width="414" height="584"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemGrayColor"/>

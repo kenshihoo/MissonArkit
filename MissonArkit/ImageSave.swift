@@ -25,7 +25,7 @@ class ImageSave: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(tapAnchor)
         // Screen Size の取得
         let screenWidth = self.drawView.bounds.width
         let screenHeight = self.drawView.bounds.height
@@ -38,7 +38,7 @@ class ImageSave: UIViewController, ARSCNViewDelegate {
         // 不透明にしない（透明）
         planeDraw.isOpaque = false
         // 背景色
-        self.drawView.backgroundColor = UIColor.orange
+        self.drawView.backgroundColor = UIColor.black
     }
     
     //保存ボタンが押されたら画像として保存する

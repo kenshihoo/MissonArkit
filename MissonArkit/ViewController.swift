@@ -95,7 +95,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         segueToImageSave()
                         //動作確認用のprint
                         print("完了")
-                        print(distancetap)
+                        print(tapCount)
                                 }
                             }
                         }
