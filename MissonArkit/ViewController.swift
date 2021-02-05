@@ -36,13 +36,15 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //平面の検出を有効化
         configuration.planeDetection = [.horizontal]
         
-        //各種変数を初期化(初期化ボタンを一回挟む？)
+        //各種変数を初期化
         tapCount = 0
         tapAnchor.removeAll()
-        
-        
+        // Nodeを削除
+        self.sceneView.scene.rootNode.enumerateChildNodes {(node, _) in
+                node.removeFromParentNode()
+            }
         //ARセッションを開始
-        sceneView.session.run(configuration)
+        sceneView.session.run(configuration,options: [.resetTracking,.removeExistingAnchors])
     }
 
     //viewの表示が終了(アプリが閉じられたり)した場合の処理
@@ -53,6 +55,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     }
     
         //<上記まででARSCNViewの設定と平面検出ができるようになっている>
+    
 
     
     //画面がタップされた場合の処理
@@ -106,6 +109,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.session.add(anchor: (tapAnchor)[tapCount - 1])
     }
     
+    
+    
     // シーンにARAnchorが追加されたときの処理
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode,for anchor: ARAnchor) {
     guard !(anchor is ARPlaneAnchor) else { return }
@@ -123,8 +128,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     //画面遷移
     func segueToImageSave (){
         self.performSegue(withIdentifier: "toImageSave", sender: nil)
-        
-        func  prepare(for segue: UIStoryboardSegue, sender: Any?){
+        }
+    //画面遷移先に値を渡す
+    override func  prepare(for segue: UIStoryboardSegue, sender: Any?){
             if segue.identifier == "toImageSave" {
                 //DrawImageへの値の受け渡し
                 let imagesave = segue.destination as! ImageSave
@@ -132,5 +138,4 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 imagesave.tapAnchor = tapAnchor
             }
         }
-    }
 }

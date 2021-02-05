@@ -25,7 +25,6 @@ class ImageSave: UIViewController, ARSCNViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(tapAnchor)
         // Screen Size の取得
         let screenWidth = self.drawView.bounds.width
         let screenHeight = self.drawView.bounds.height
@@ -43,6 +42,13 @@ class ImageSave: UIViewController, ARSCNViewDelegate {
     
     //保存ボタンが押されたら画像として保存する
     @IBAction func saveButton(_ sender: Any) {
+        
+        
+    }
+    
+    //戻るボタンで測定画面に戻る
+    @IBAction func reTap(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
 }
