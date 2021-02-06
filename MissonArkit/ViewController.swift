@@ -99,12 +99,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         //動作確認用のprint
                         print("完了")
                         print(tapCount)
+                        print("VCのcountだよ")
                                 }
                             }
                         }
                     }
                 }
-        //オブジェクトを設置
         //シーンにARAnchorを追加。平面が見つかったときと同様の扱いになり(renderer(_:didAdd:for)を呼べる)
         sceneView.session.add(anchor: (tapAnchor)[tapCount - 1])
     }

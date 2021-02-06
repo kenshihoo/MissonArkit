@@ -10,14 +10,14 @@ import SceneKit
 import ARKit
 
 class DrawImage: UIView {
-
-    var tapCount :Int!
+    var tapCount = 0
     //CGPoint型に変換した独自の配列(didsetで行う)同時にScaleの計算もしておきたい
     var tapAnchor : [ARAnchor?] = []
     var edge :[Double?] = []
-        
     
     override func draw(_ rect: CGRect) {
+        print("draw")
+        print(tapCount)
         // UIBezierPath のインスタンス生成
         let line = UIBezierPath();
         
@@ -25,12 +25,10 @@ class DrawImage: UIView {
         // 起点の設定
         line.move(to: CGPoint(x: Int(tapAnchor[0]!.transform.columns.3.x), y: Int(tapAnchor[0]!.transform.columns.3.z)));
         
-        
         // 帰着点の設定
         for drawCount in 1...tapCount - 2 {
                 line.addLine(to: CGPoint(x: Int(tapAnchor[drawCount]!.transform.columns.3.x), y: Int(tapAnchor[drawCount]!.transform.columns.3.z)));
         }
-        
         // ラインを結ぶ
         line.close()
         // 塗りつぶし色の設定
@@ -62,7 +60,6 @@ class DrawImage: UIView {
                 let distancetap = sqrt(distanceX*distanceX + distanceY*distanceY)
                 
                 edge.append(distancetap)
-                
                 
                 measureCount += 1
                 
