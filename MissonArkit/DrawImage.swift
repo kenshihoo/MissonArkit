@@ -83,5 +83,5 @@ class DrawImage: UIView {
 //
 //        print(edge[0]! as Double)
 //        self.transform = self.transform.scaledBy(x: <#T##CGFloat#>, y: <#T##CGFloat#>)
-//    }
+//    }]
 }
