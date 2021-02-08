@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E37A8BF525BDAB90002EA6A0 /* TouchesIMage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A8BF425BDAB90002EA6A0 /* TouchesIMage.swift */; };
+		E37A8BF925C043AE002EA6A0 /* ImageSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A8BF825C043AD002EA6A0 /* ImageSave.swift */; };
+		E37A8BFE25C06345002EA6A0 /* DrawImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37A8BFD25C06345002EA6A0 /* DrawImage.swift */; };
+		E37D0BD925CE6F0600E232A4 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D0BD825CE6F0500E232A4 /* File.swift */; };
+		E37D0BDC25CE6F2A00E232A4 /* FileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37D0BDB25CE6F2A00E232A4 /* FileVC.swift */; };
 		E3BF0A1225B33138005026A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A1125B33138005026A3 /* AppDelegate.swift */; };
 		E3BF0A1425B33138005026A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A1325B33138005026A3 /* ViewController.swift */; };
 		E3BF0A1625B33139005026A3 /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E3BF0A1525B33139005026A3 /* Experience.rcproject */; };
@@ -21,7 +24,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E37A8BF425BDAB90002EA6A0 /* TouchesIMage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchesIMage.swift; sourceTree = "<group>"; };
+		E37A8BF825C043AD002EA6A0 /* ImageSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSave.swift; sourceTree = "<group>"; };
+		E37A8BFD25C06345002EA6A0 /* DrawImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawImage.swift; sourceTree = "<group>"; };
+		E37D0BD825CE6F0500E232A4 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		E37D0BDB25CE6F2A00E232A4 /* FileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileVC.swift; sourceTree = "<group>"; };
 		E3BF0A0E25B33138005026A3 /* MissonArkit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MissonArkit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3BF0A1125B33138005026A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3BF0A1325B33138005026A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +74,8 @@
 			children = (
 				E3BF0A1125B33138005026A3 /* AppDelegate.swift */,
 				E3BF0A1325B33138005026A3 /* ViewController.swift */,
+				E37A8BF825C043AD002EA6A0 /* ImageSave.swift */,
+				E37A8BFD25C06345002EA6A0 /* DrawImage.swift */,
 				E3BF0A3525B3C6A5005026A3 /* SAMPLE */,
 				E3BF0A1525B33139005026A3 /* Experience.rcproject */,
 				E3BF0A1725B33139005026A3 /* Main.storyboard */,
@@ -85,7 +93,8 @@
 				E3BF0A2F25B331B4005026A3 /* SetObject.swift */,
 				E3C0863725B8665F00DF3C96 /* PrintCoordinate.swift */,
 				E3C0863A25B9B63600DF3C96 /* SheetSet.swift */,
-				E37A8BF425BDAB90002EA6A0 /* TouchesIMage.swift */,
+				E37D0BDB25CE6F2A00E232A4 /* FileVC.swift */,
+				E37D0BD825CE6F0500E232A4 /* File.swift */,
 			);
 			path = SAMPLE;
 			sourceTree = "<group>";
@@ -160,12 +169,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E37A8BF525BDAB90002EA6A0 /* TouchesIMage.swift in Sources */,
 				E3C0863825B8665F00DF3C96 /* PrintCoordinate.swift in Sources */,
 				E3BF0A3325B3325A005026A3 /* MeasureTapPoint.swift in Sources */,
+				E37D0BDC25CE6F2A00E232A4 /* FileVC.swift in Sources */,
 				E3BF0A1425B33138005026A3 /* ViewController.swift in Sources */,
 				E3BF0A3025B331B4005026A3 /* SetObject.swift in Sources */,
 				E3BF0A1225B33138005026A3 /* AppDelegate.swift in Sources */,
+				E37D0BD925CE6F0600E232A4 /* File.swift in Sources */,
+				E37A8BF925C043AE002EA6A0 /* ImageSave.swift in Sources */,
+				E37A8BFE25C06345002EA6A0 /* DrawImage.swift in Sources */,
 				E3BF0A1625B33139005026A3 /* Experience.rcproject in Sources */,
 				E3C0863B25B9B63600DF3C96 /* SheetSet.swift in Sources */,
 			);
