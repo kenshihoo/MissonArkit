@@ -19,13 +19,11 @@ class ImageSave: UIViewController, ARSCNViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
-        print("ImageSAVE")
-        print(tapCount)
+        print("ImageSAVE\(tapCount)")
         //DrawImageに値を渡す
         self.drawView.tapCount = tapCount
         self.drawView.tapAnchor = tapAnchor
-        print("値渡した")
-        print(self.drawView.tapCount)
+        print("値渡した\(self.drawView.tapCount)")
     }
     
     override func viewDidLoad() {

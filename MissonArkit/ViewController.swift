@@ -97,8 +97,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                         //画面遷移
                         segueToImageSave()
                         //動作確認用のprint
-                        print("完了")
-                        print(tapCount)
+                        print("完了\(tapCount)")
                         print("VCのcountだよ")
                                 }
                             }
@@ -108,8 +107,6 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //シーンにARAnchorを追加。平面が見つかったときと同様の扱いになり(renderer(_:didAdd:for)を呼べる)
         sceneView.session.add(anchor: (tapAnchor)[tapCount - 1])
     }
-    
-    
     
     // シーンにARAnchorが追加されたときの処理
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode,for anchor: ARAnchor) {
@@ -124,18 +121,19 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     node.addChildNode(sphereNode)
     }
     
-    
     //画面遷移
     func segueToImageSave (){
         self.performSegue(withIdentifier: "toImageSave", sender: nil)
         }
+    
     //画面遷移先に値を渡す
     override func  prepare(for segue: UIStoryboardSegue, sender: Any?){
-            if segue.identifier == "toImageSave" {
-                //DrawImageへの値の受け渡し
-                let imagesave = segue.destination as! ImageSave
-                imagesave.tapCount = tapCount
-                imagesave.tapAnchor = tapAnchor
-            }
+        if segue.identifier == "toImageSave" {
+            //DrawImageへの値の受け渡し
+            let imagesave = segue.destination as! ImageSave
+            imagesave.tapCount = tapCount
+            imagesave.tapAnchor = tapAnchor
         }
+    }
+    
 }
