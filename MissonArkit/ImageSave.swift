@@ -45,8 +45,6 @@ class ImageSave: UIViewController, ARSCNViewDelegate {
     @IBAction func saveButton(_ sender: Any) {
         //画像の保存
         getImage(view: drawView)
-        //測定画面に戻る
-        dismiss(animated: true, completion: nil)
     }
     
     //戻るボタンで測定画面に戻る
@@ -79,6 +77,7 @@ class ImageSave: UIViewController, ARSCNViewDelegate {
     
     // 保存を試みた結果を受け取る
     @objc func didFinishSavingImage(_ image: UIImage, didFinishSavingWithError error: NSError!, contextInfo: UnsafeMutableRawPointer) {
+        
         // 結果によって出すアラートを変更する
         var title = "保存完了"
         var message = "カメラロールに保存しました"
@@ -90,6 +89,7 @@ class ImageSave: UIViewController, ARSCNViewDelegate {
         
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
+        
+        present(alertController, animated: true, completion: nil)
     }
 }
