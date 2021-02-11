@@ -14,6 +14,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var tapCount = 0
     var tapAnchor : [ARAnchor] = []
     
+    
     @IBOutlet var sceneView: ARSCNView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         //各種変数を初期化
         tapCount = 0
         tapAnchor.removeAll()
+        
         // Nodeを削除
         self.sceneView.scene.rootNode.enumerateChildNodes {(node, _) in
                 node.removeFromParentNode()
@@ -70,12 +72,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                 
                 //スクリーン座標に符合するARanchorを保存
                 let hitPoint = sceneView.hitTest(point, types:.existingPlaneUsingExtent)
+            
                 
                 if !hitPoint.isEmpty {
                 let hitAnchor = ARAnchor(transform: hitPoint.first!.worldTransform)
                 tapAnchor.append(hitAnchor)
-             
-                //guard節使って4回未満ならbreakとかやるとわかりやすくなりそう
+                    
                 //4回目以降のタップからセッションを終了するかを判断する
                 if tapCount > 3{
                     
@@ -100,10 +102,12 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                                     }
                                 }
                             }
-                        }
+                    //シーンにARAnchorを追加。平面が見つかったときと同様の扱いになり(renderer(_:didAdd:for)を呼べる)
+                    if tapCount > 0  {
+                        sceneView.session.add(anchor: (tapAnchor)[tapCount - 1])
                     }
-            //シーンにARAnchorを追加。平面が見つかったときと同様の扱いになり(renderer(_:didAdd:for)を呼べる)
-            sceneView.session.add(anchor: (tapAnchor)[tapCount - 1])
+                }
+            }
         }
         
         // シーンにARAnchorが追加されたときの処理

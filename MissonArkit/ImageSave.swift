@@ -12,7 +12,7 @@ import ARKit
 class ImageSave: UIViewController, ARSCNViewDelegate {
 
     var tapCount = 0
-    var tapAnchor : [ARAnchor?] = []
+    var tapAnchor : [ARAnchor] = []
     @IBOutlet weak var drawView: DrawImage!
     
     

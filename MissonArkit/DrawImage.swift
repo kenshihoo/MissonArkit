@@ -11,7 +11,7 @@ import ARKit
 class DrawImage: UIView {
     var tapCount = 0
     //CGPoint型に変換した独自の配列(didsetで行う)同時にScaleの計算もしておきたい
-    var tapAnchor : [ARAnchor?] = []
+    var tapAnchor : [ARAnchor] = []
     var edge :[Double?] = []
     // UIBezierPath のインスタンス生成
     let line = UIBezierPath();
@@ -20,25 +20,25 @@ class DrawImage: UIView {
         print("draw\(tapCount)")
         
     if !tapAnchor.isEmpty {
-        print("ARanchor0\(tapAnchor[0]!)")
-        print("ARanchor1\(tapAnchor[1]!)")
-        print("ARanchor2\(tapAnchor[2]!)")
+        print("ARanchor0\(tapAnchor[0])")
+        print("ARanchor1\(tapAnchor[1])")
+        print("ARanchor2\(tapAnchor[2])")
 //        // 起点の設定
-        let moveX = abs(Double(tapAnchor[0]!.transform.columns.3.x))*500
-        let moveY = abs(Double(tapAnchor[0]!.transform.columns.3.z))*500
+        let moveX = abs(Double(tapAnchor[0].transform.columns.3.x))*500
+        let moveY = abs(Double(tapAnchor[0].transform.columns.3.z))*500
         
         line.move(to: CGPoint(x: moveX, y: moveY))
         
-        print("monve:\(Double(tapAnchor[0]!.transform.columns.3.x)*500)")
+        print("monve:\(Double(tapAnchor[0].transform.columns.3.x)*500)")
         
         // 帰着点の設定
         for drawCount in 1...tapCount - 2 {
-            let addLineX = abs(Double(tapAnchor[drawCount]!.transform.columns.3.x))*500
-            let addLineY = abs(Double(tapAnchor[drawCount]!.transform.columns.3.z))*500
+            let addLineX = abs(Double(tapAnchor[drawCount].transform.columns.3.x))*500
+            let addLineY = abs(Double(tapAnchor[drawCount].transform.columns.3.z))*500
             
             line.addLine(to: CGPoint(x: addLineX, y: addLineY))
             
-            print("pointX:\(drawCount)\(abs(Double(tapAnchor[drawCount]!.transform.columns.3.x))*100)")
+            print("pointX:\(drawCount)\(abs(Double(tapAnchor[drawCount].transform.columns.3.x))*100)")
             
 //                line.addLine(to: CGPoint(x: Int(tapAnchor[drawCount]!.transform.columns.3.x)*100, y: Int(tapAnchor[drawCount]!.transform.columns.3.z)*100));
                 }
@@ -75,16 +75,16 @@ class DrawImage: UIView {
             }
            
             if !tapAnchor.isEmpty {
-                let distanceX = Double((tapAnchor[i])!.transform.columns.3.x - (tapAnchor[measureCount])!.transform.columns.3.x)
-                let distanceY = Double((tapAnchor[i])!.transform.columns.3.z - (tapAnchor[measureCount])!.transform.columns.3.z)
+                let distanceX = Double((tapAnchor[i]).transform.columns.3.x - (tapAnchor[measureCount]).transform.columns.3.x)
+                let distanceY = Double((tapAnchor[i]).transform.columns.3.z - (tapAnchor[measureCount]).transform.columns.3.z)
                 let distancetap = sqrt(distanceX*distanceX + distanceY*distanceY)*100
                 
                 //辺の横に距離を表示
-                let labelCoordinateX = abs(Double((tapAnchor[measureCount])!.transform.columns.3.x) + distanceX/2)*500
+                let labelCoordinateX = abs(Double((tapAnchor[measureCount]).transform.columns.3.x) + distanceX/2)*500
                 
-                let labelCoordinateY = abs(Double((tapAnchor[measureCount])!.transform.columns.3.z) + distanceY/2)*500
+                let labelCoordinateY = abs(Double((tapAnchor[measureCount]).transform.columns.3.z) + distanceY/2)*500
 
-                    print("labelPointX:\(abs(Double(tapAnchor[i]!.transform.columns.3.x)*500) + 1)")
+                print("labelPointX:\(abs(Double(tapAnchor[i].transform.columns.3.x)*500) + 1)")
 
                 "\(String(Int(distancetap)))cm".draw(at: CGPoint(x: labelCoordinateX, y: labelCoordinateY), withAttributes: [
                             NSAttributedString.Key.foregroundColor : UIColor.red,
