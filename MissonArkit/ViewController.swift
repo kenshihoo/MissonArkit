@@ -14,8 +14,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
     var tapCount = 0
     var tapAnchor : [ARAnchor] = []
     
-    
     @IBOutlet var sceneView: ARSCNView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sceneView.delegate = self
@@ -104,7 +104,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
                             }
                     //シーンにARAnchorを追加。平面が見つかったときと同様の扱いになり(renderer(_:didAdd:for)を呼べる)
                     if tapCount > 0  {
-                        sceneView.session.add(anchor: (tapAnchor)[tapCount - 1])
+                       sceneView.session.add(anchor: (tapAnchor)[tapCount - 1])
                     }
                 }
             }

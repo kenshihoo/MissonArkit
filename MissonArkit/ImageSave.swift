@@ -13,16 +13,24 @@ class ImageSave: UIViewController, ARSCNViewDelegate {
 
     var tapCount = 0
     var tapAnchor : [ARAnchor] = []
+    var centerX : Double!
+    var centerY : Double!
     @IBOutlet weak var drawView: DrawImage!
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
         print("ImageSAVE\(tapCount)")
+        
+        centerX = Double(drawView.bounds.width/2)
+        centerY = Double(drawView.bounds.height/2)
+        
         //DrawImageに値を渡す
         self.drawView.tapCount = tapCount
         self.drawView.tapAnchor = tapAnchor
+        self.drawView.centerX = centerX
+        self.drawView.centerY = centerY
+        
         print("値渡した\(self.drawView.tapCount)")
     }
     
