@@ -106,6 +106,8 @@ class DrawImage: UIView {
         edge.reverse()
         //1cm=118.1px かつ1px = 2ptとする
         let edgePt = edge[0]!*59.05
+        //倍率を計算
+        let edgeExpansion = edgePt*10
         
 //        self.bounds.widthはポイント
         scaleValue = Double(self.bounds.width)*0.8/edgePt
