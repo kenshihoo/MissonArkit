@@ -57,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				E3BF0A1025B33138005026A3 /* MissonArkit */,
+				E3BF0A3525B3C6A5005026A3 /* SAMPLE */,
 				E3BF0A0F25B33138005026A3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,9 +77,8 @@
 				E3BF0A1325B33138005026A3 /* ViewController.swift */,
 				E37A8BF825C043AD002EA6A0 /* ImageSave.swift */,
 				E37A8BFD25C06345002EA6A0 /* DrawImage.swift */,
-				E3BF0A3525B3C6A5005026A3 /* SAMPLE */,
-				E3BF0A1525B33139005026A3 /* Experience.rcproject */,
 				E3BF0A1725B33139005026A3 /* Main.storyboard */,
+				E3BF0A1525B33139005026A3 /* Experience.rcproject */,
 				E3BF0A1A25B3313B005026A3 /* Assets.xcassets */,
 				E3BF0A1C25B3313B005026A3 /* LaunchScreen.storyboard */,
 				E3BF0A1F25B3313B005026A3 /* Info.plist */,
